@@ -12,8 +12,8 @@ const clearToDo = () => {
 	toDoCompleted.innerHTML = "";
 };
 
-const render = () => {	
-	if(toDoData === null) {
+const render = () => {
+	if (toDoData === null) {
 		toDoData = [];
 	}
 	clearToDo();
@@ -21,14 +21,14 @@ const render = () => {
 		let li = document.createElement("li");
 
 		li.classList = "todo-item";
-		li.innerHTML = 
-		'<span class="text-todo">' + elem.name + '</span>' + 
-		'<div class="todo-buttons">' +
+		li.innerHTML =
+			'<span class="text-todo">' + elem.name + '</span>' +
+			'<div class="todo-buttons">' +
 			'<button class="todo-remove"></button>' +
 			'<button class="todo-complete"></button>' +
-		'</div>';
+			'</div>';
 
-		if(elem.checkbox) {
+		if (elem.checkbox) {
 			toDoCompleted.append(li);
 		} else {
 			toDoList.append(li);
@@ -45,9 +45,9 @@ const render = () => {
 			localStorage.setItem("ToDo", JSON.stringify(toDoData));
 			if (toDoData.length === 0) {
 				localStorage.clear();
-			} 
+			}
 		});
-		if(toDoData.length >= 1){
+		if (toDoData.length >= 1) {
 			localStorage.setItem("ToDo", JSON.stringify(toDoData));
 		}
 	});
@@ -62,7 +62,7 @@ headerButton.addEventListener("click", (event) => {
 			checkbox: false
 		});
 		headerInput.value = "";
-	
+
 		render();
 	}
 });
